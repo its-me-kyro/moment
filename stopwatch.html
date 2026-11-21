@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="Moment – stopwatch" />
+  <title>Stopwatch – Moment</title>
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Roboto:wght@300;400;500&family=Roboto+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&family=Outfit:wght@300;400;500;600&family=Syne:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600&family=Sora:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body class="theme-dark">
+  <div id="app">
+    <nav class="top-nav" id="top-nav">
+      <div class="nav-left">
+        <a href="index.html" class="brand" title="Moment">
+          <img src="assets/icons/favicon.svg" alt="" class="brand-icon" width="22" height="22" />
+          <span>Moment</span>
+        </a>
+        <a href="index.html" class="nav-link">Clock</a>
+        <a href="countdown.html" class="nav-link">Countdown</a>
+        <a href="stopwatch.html" class="nav-link active">Stopwatch</a>
+        <a href="message.html" class="nav-link">Message</a>
+      </div>
+      <div class="nav-right">
+        <button id="theme-toggle" class="icon-btn" title="Toggle light / dark" aria-label="Toggle theme">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <button id="fullscreen-btn" class="icon-btn" title="Fullscreen" aria-label="Toggle fullscreen">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"></path>
+          </svg>
+        </button>
+        <button id="zen-btn" class="icon-btn" title="Hide UI (click screen to show again)" aria-label="Hide interface">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+        </button>
+        <button id="settings-btn" class="icon-btn" title="Settings" aria-label="Settings">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <main class="stopwatch-container" id="stopwatch-container">
+      <div id="sw-time" class="sw-time">00:00:00.00</div>
+      <div id="sw-flip" class="flip-clock sw-flip" aria-hidden="true">
+        <div class="flip-digit" data-slot="h0"><div class="half top"><span>0</span></div><div class="half bottom"><span>0</span></div></div>
+        <div class="flip-digit" data-slot="h1"><div class="half top"><span>0</span></div><div class="half bottom"><span>0</span></div></div>
+        <span class="flip-colon">:</span>
+        <div class="flip-digit" data-slot="m0"><div class="half top"><span>0</span></div><div class="half bottom"><span>0</span></div></div>
+        <div class="flip-digit" data-slot="m1"><div class="half top"><span>0</span></div><div class="half bottom"><span>0</span></div></div>
+        <span class="flip-colon">:</span>
+        <div class="flip-digit" data-slot="s0"><div class="half top"><span>0</span></div><div class="half bottom"><span>0</span></div></div>
+        <div class="flip-digit" data-slot="s1"><div class="half top"><span>0</span></div><div class="half bottom"><span>0</span></div></div>
+        <span class="flip-colon sw-cs-sep">.</span>
+        <div class="flip-digit sw-cs" data-slot="cs0"><div class="half top"><span>0</span></div><div class="half bottom"><span>0</span></div></div>
+        <div class="flip-digit sw-cs" data-slot="cs1"><div class="half top"><span>0</span></div><div class="half bottom"><span>0</span></div></div>
+      </div>
+      <div class="sw-controls" id="sw-controls">
+        <button type="button" id="sw-start" class="sw-btn sw-primary">Start</button>
+        <button type="button" id="sw-lap" class="sw-btn" disabled>Lap</button>
+        <button type="button" id="sw-reset" class="sw-btn" disabled>Reset</button>
+      </div>
+      <ul id="sw-laps" class="sw-laps" aria-label="Laps"></ul>
+    </main>
+
+    <aside id="settings-panel" class="settings-panel" aria-hidden="true">
+      <div class="settings-header">
+        <h2>Settings</h2>
+        <button id="reset-settings" class="icon-btn reset-btn" title="Reset all settings" aria-label="Reset settings">
+          <img src="assets/icons/icon-reset.png" alt="" class="action-icon" />
+        </button>
+        <button id="close-settings" class="icon-btn" aria-label="Close settings">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="settings-section size-controls">
+        <label><img src="assets/icons/icon-size.png" class="inline-icon" alt="" /> Display size</label>
+        <div class="size-row"><span>Time</span><input type="range" id="size-sw" min="25" max="200" value="100" step="1"><output id="size-sw-value">100%</output></div>
+        <div class="size-row"><span>Buttons</span><input type="range" id="size-sw-btns" min="50" max="200" value="100" step="1"><output id="size-sw-btns-value">100%</output></div>
+      </div>
+
+      <div class="settings-section">
+        <label for="font-select">Font</label>
+        <select id="font-select">
+          <option value="Inter">Inter</option>
+          <option value="JetBrains Mono">JetBrains Mono</option>
+          <option value="Roboto">Roboto</option>
+          <option value="Roboto Mono">Roboto Mono</option>
+          <option value="Space Grotesk">Space Grotesk</option>
+          <option value="Outfit">Outfit</option>
+          <option value="Syne">Syne</option>
+          <option value="Playfair Display">Playfair Display</option>
+          <option value="Cormorant Garamond">Cormorant Garamond</option>
+          <option value="IBM Plex Sans">IBM Plex Sans</option>
+          <option value="IBM Plex Mono">IBM Plex Mono</option>
+          <option value="DM Sans">DM Sans</option>
+          <option value="Manrope">Manrope</option>
+          <option value="Sora">Sora</option>
+          <option value="system-ui">System UI</option>
+          <option value="Georgia">Georgia</option>
+          <option value="Times New Roman">Times New Roman</option>
+          <option value="Courier New">Courier New</option>
+          <option value="monospace">Monospace</option>
+        </select>
+      </div>
+
+      <div class="settings-section">
+        <label>Theme</label>
+        <div class="theme-options">
+          <button class="theme-btn active" data-theme="dark">Dark</button>
+          <button class="theme-btn" data-theme="light">Light</button>
+          <button class="theme-btn" data-theme="midnight">Midnight</button>
+          <button class="theme-btn" data-theme="ocean">Ocean</button>
+          <button class="theme-btn" data-theme="forest">Forest</button>
+          <button class="theme-btn" data-theme="sunset">Sunset</button>
+          <button class="theme-btn" data-theme="violet">Violet</button>
+          <button class="theme-btn" data-theme="slate">Slate</button>
+          <button class="theme-btn" data-theme="rose">Rose</button>
+          <button class="theme-btn" data-theme="paper">Paper</button>
+          <button class="theme-btn" data-theme="custom">Custom</button>
+        </div>
+      </div>
+
+      <div class="settings-section" id="custom-bg-section" style="display:none;">
+        <label><img src="assets/icons/icon-image.png" class="inline-icon" alt="" /> Background image / GIF URL</label>
+        <input type="url" id="custom-bg-url" placeholder="https://.../image.gif" />
+        <p class="hint"><img src="assets/icons/icon-upload.png" class="inline-icon" alt="" /> Upload image or <img src="assets/icons/icon-gif.png" class="inline-icon" alt="" /> GIF:</p>
+        <input type="file" id="custom-bg-file" accept="image/*,.gif" />
+        <button id="clear-custom-bg" class="text-btn" type="button">Clear custom background</button>
+      </div>
+
+      <div class="settings-section">
+        <label for="sw-show-cs"><input type="checkbox" id="sw-show-cs" checked /> Show centiseconds</label>
+      </div>
+      <div class="settings-section">
+        <label for="flip-mode"><input type="checkbox" id="flip-mode" /> Flipboard display (animated flaps)</label>
+        <p class="hint" style="margin-top:0.35rem;font-size:0.78rem;color:var(--text-muted);">Works with any theme, including Ocean and Custom background.</p>
+      </div>
+
+      
+      <div class="settings-section" id="flip-style-section">
+        <label>Flipboard design</label>
+        <div class="flip-design-options">
+          <button type="button" class="flip-design-btn active" data-flip-design="classic">Classic</button>
+          <button type="button" class="flip-design-btn" data-flip-design="airport">Airport</button>
+          <button type="button" class="flip-design-btn" data-flip-design="neon">Neon</button>
+          <button type="button" class="flip-design-btn" data-flip-design="gold">Gold</button>
+          <button type="button" class="flip-design-btn" data-flip-design="minimal">Minimal</button>
+          <button type="button" class="flip-design-btn" data-flip-design="inverse">Inverse</button>
+          <button type="button" class="flip-design-btn" data-flip-design="ocean">Ocean</button>
+          <button type="button" class="flip-design-btn" data-flip-design="carbon">Carbon</button>
+        </div>
+        <div class="flip-color-row">
+          <label class="color-label">Digits <input type="color" id="flip-color-text" value="#f0f0f2" /></label>
+          <label class="color-label">Top <input type="color" id="flip-color-top" value="#2a2a30" /></label>
+          <label class="color-label">Bottom <input type="color" id="flip-color-bottom" value="#1c1c20" /></label>
+          <label class="color-label">Seam <input type="color" id="flip-color-seam" value="#000000" /></label>
+        </div>
+        <p class="hint" style="margin-top:0.4rem;font-size:0.78rem;color:var(--text-muted);">Presets set colors instantly; pickers fine-tune any flap.</p>
+      </div>
+<div class="settings-section">
+        <label>Colors</label>
+        <div class="color-row">
+          <label class="color-label">Time <input type="color" id="color-sw" value="#f0f0f2" /></label>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <label>Time position</label>
+        <div class="axis-row">
+          <img src="assets/icons/icon-x.png" class="axis-icon" alt="X" title="Horizontal" />
+          <input type="range" id="pos-sw-x" min="-50" max="50" value="0" step="1" />
+          <input type="number" id="pos-sw-x-num" min="-50" max="50" value="0" step="1" class="axis-num" />
+        </div>
+        <div class="axis-row">
+          <img src="assets/icons/icon-y.png" class="axis-icon" alt="Y" title="Vertical" />
+          <input type="range" id="pos-sw-y" min="-50" max="50" value="0" step="1" />
+          <input type="number" id="pos-sw-y-num" min="-50" max="50" value="0" step="1" class="axis-num" />
+        </div>
+        <div class="axis-row">
+          <img src="assets/icons/icon-rotate.png" class="axis-icon" alt="Rotate" title="Rotation" />
+          <input type="range" id="pos-sw-r" min="-180" max="180" value="0" step="1" />
+          <input type="number" id="pos-sw-r-num" min="-180" max="180" value="0" step="1" class="axis-num" />
+          <span class="axis-unit">°</span>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <label>Buttons position</label>
+        <div class="axis-row">
+          <img src="assets/icons/icon-x.png" class="axis-icon" alt="X" title="Horizontal" />
+          <input type="range" id="pos-swbtns-x" min="-50" max="50" value="0" step="1" />
+          <input type="number" id="pos-swbtns-x-num" min="-50" max="50" value="0" step="1" class="axis-num" />
+        </div>
+        <div class="axis-row">
+          <img src="assets/icons/icon-y.png" class="axis-icon" alt="Y" title="Vertical" />
+          <input type="range" id="pos-swbtns-y" min="-50" max="50" value="0" step="1" />
+          <input type="number" id="pos-swbtns-y-num" min="-50" max="50" value="0" step="1" class="axis-num" />
+        </div>
+        <div class="axis-row">
+          <img src="assets/icons/icon-rotate.png" class="axis-icon" alt="Rotate" title="Rotation" />
+          <input type="range" id="pos-swbtns-r" min="-180" max="180" value="0" step="1" />
+          <input type="number" id="pos-swbtns-r-num" min="-180" max="180" value="0" step="1" class="axis-num" />
+          <span class="axis-unit">°</span>
+        </div>
+      </div>
+
+      <div class="settings-section legal-section">
+        <label>Legal</label>
+        <div class="legal-links">
+          <a href="legal/license.html">License (ARR)</a>
+          <a href="legal/privacy.html">Privacy</a>
+          <a href="legal/terms.html">Terms</a>
+        </div>
+      </div>
+
+      <div class="settings-footer">
+        <p class="version">v1.3.0</p>
+        <div class="feedback-row">
+          <p>Issues or suggestions?</p>
+          <a class="feedback-icon" href="mailto:hi.kyro@tuta.io?subject=Moment%20feedback" aria-label="Suggest an issue or feature" title="Suggest an issue or feature">
+            <img src="assets/icons/icon-email.png" alt="Email" />
+          </a>
+        </div>
+        <a class="email-link" href="mailto:hi.kyro@tuta.io?subject=Moment%20feedback">hi.kyro@tuta.io</a>
+        <p class="github-link">
+          <a href="https://github.com/its-me-kyro" target="_blank" rel="noopener" title="GitHub">
+            <img src="assets/icons/github-icon.png" alt="GitHub" class="github-icon" width="20" height="20" />
+            <span>its-me-kyro</span>
+          </a>
+        </p>
+      </div>
+    </aside>
+
+    <button type="button" id="fullscreen-exit" aria-label="Exit fullscreen">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/></svg>
+      Exit fullscreen
+    </button>
+    <div id="overlay" class="overlay" hidden></div>
+  </div>
+  <script src="js/app.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', () => initStopwatch());</script>
+</body>
+</html>

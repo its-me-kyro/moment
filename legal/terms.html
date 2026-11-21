@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Use – Moment</title>
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    html, body {
+      height: auto;
+      min-height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto !important;
+    }
+    body {
+      background: var(--bg);
+      background-image:
+        radial-gradient(ellipse 80% 50% at 15% 10%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 55%),
+        radial-gradient(ellipse 60% 40% at 90% 80%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 50%);
+      background-attachment: fixed;
+    }
+    .legal-nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+      align-items: center;
+      padding: 0.85rem 1.5rem;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s, transform 0.2s;
+    }
+    .legal-nav a:hover { color: var(--text); transform: translateY(-1px); }
+    .legal-page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .legal-page h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+    .legal-page h2 { font-size: 1.15rem; margin: 1.75rem 0 0.6rem; }
+    .legal-page p, .legal-page li { color: var(--text-muted); font-size: 0.95rem; }
+    .legal-page ul { padding-left: 1.25rem; }
+    .legal-page a { color: var(--accent); }
+    
+  </style>
+</head>
+<body class="theme-dark">
+  <nav class="legal-nav">
+    <a href="../index.html">← Moment</a>
+    <a href="license.html">License</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </nav>
+  <main class="legal-page">
+
+    <h1>Terms of Use</h1>
+    <p>Last updated: November 2026</p>
+    <h2>Acceptance</h2>
+    <p>By using Moment you agree to these Terms of Use and to the License (All Rights Reserved). If you do not agree, do not use the software.</p>
+    <h2>License grant</h2>
+    <p>You are granted a limited, non-exclusive, non-transferable, revocable right to use Moment for personal purposes in accordance with the License page. No other rights are granted.</p>
+    <h2>Acceptable use</h2>
+    <ul>
+      <li>Use Moment as a personal clock, countdown, or message display.</li>
+      <li>Do not use Moment to display illegal, harmful, or infringing content.</li>
+      <li>Do not attempt to circumvent technical restrictions or redistribute the app.</li>
+    </ul>
+    <h2>No warranty</h2>
+    <p>Moment is provided “as is”. The author makes no warranties regarding accuracy of time display, availability, or fitness for any particular purpose (including safety-critical or commercial use).</p>
+    <h2>Limitation of liability</h2>
+    <p>To the maximum extent permitted by law, the author shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of data or profits, arising from your use of Moment.</p>
+    <h2>Changes</h2>
+    <p>These terms may be updated from time to time. Continued use after changes constitutes acceptance of the revised terms.</p>
+    <h2>Contact</h2>
+    <p><a href="mailto:hi.kyro@tuta.io">hi.kyro@tuta.io</a> · <a href="https://github.com/its-me-kyro" target="_blank" rel="noopener">GitHub</a></p>
+
+  </main>
+  <script>
+    const s = (() => { try { return JSON.parse(localStorage.getItem('moment-settings-v1')) || {}; } catch { return {}; } })();
+    if (s.theme) document.body.className = 'theme-' + s.theme;
+  </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>License – Moment</title>
+  <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    html, body {
+      height: auto;
+      min-height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto !important;
+    }
+    body {
+      background: var(--bg);
+      background-image:
+        radial-gradient(ellipse 80% 50% at 15% 10%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 55%),
+        radial-gradient(ellipse 60% 40% at 90% 80%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 50%);
+      background-attachment: fixed;
+    }
+    .legal-nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+      align-items: center;
+      padding: 0.85rem 1.5rem;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s, transform 0.2s;
+    }
+    .legal-nav a:hover { color: var(--text); transform: translateY(-1px); }
+    .legal-page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .legal-page h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+    .legal-page h2 { font-size: 1.15rem; margin: 1.75rem 0 0.6rem; }
+    .legal-page p, .legal-page li { color: var(--text-muted); font-size: 0.95rem; }
+    .legal-page ul { padding-left: 1.25rem; }
+    .legal-page a { color: var(--accent); }
+    .badge{display:inline-block;margin-top:.75rem;padding:.35rem .75rem;border-radius:999px;border:1px solid var(--border);background:var(--bg-secondary);font-size:.8rem;color:var(--text);font-weight:500}
+  </style>
+</head>
+<body class="theme-dark">
+  <nav class="legal-nav">
+    <a href="../index.html">← Moment</a>
+    <a href="license.html">License</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </nav>
+  <main class="legal-page">
+
+    <h1>License</h1>
+    <p class="badge">All Rights Reserved (ARR)</p>
+    <p>Copyright © 2025–2026 its-me-kyro. All rights reserved.</p>
+    <h2>Ownership</h2>
+    <p>Moment, including its source code, design, assets, themes, and documentation, is the exclusive property of the copyright holder. This software is proprietary.</p>
+    <h2>Permissions</h2>
+    <p>You may:</p>
+    <ul>
+      <li>Use Moment for personal, non-commercial purposes.</li>
+      <li>Run Moment locally in a browser for your own display needs.</li>
+    </ul>
+    <h2>Restrictions</h2>
+    <p>You may <strong>not</strong>, without prior written permission:</p>
+    <ul>
+      <li>Copy, modify, distribute, sublicense, or sell the software or any part of it.</li>
+      <li>Reverse engineer, decompile, or attempt to extract the source for redistribution.</li>
+      <li>Remove or alter copyright, attribution, or license notices.</li>
+      <li>Use Moment or its branding in commercial products or services.</li>
+      <li>Host a public mirror or rebranded version of Moment.</li>
+    </ul>
+    <h2>Disclaimer</h2>
+    <p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM THE USE OF THE SOFTWARE.</p>
+    <h2>Contact</h2>
+    <p>For licensing inquiries: <a href="mailto:hi.kyro@tuta.io">hi.kyro@tuta.io</a><br />GitHub: <a href="https://github.com/its-me-kyro" target="_blank" rel="noopener">its-me-kyro</a></p>
+
+  </main>
+  <script>
+    const s = (() => { try { return JSON.parse(localStorage.getItem('moment-settings-v1')) || {}; } catch { return {}; } })();
+    if (s.theme) document.body.className = 'theme-' + s.theme;
+  </script>
+</body>
+</html>
